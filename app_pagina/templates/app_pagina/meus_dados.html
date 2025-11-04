@@ -1,0 +1,24 @@
+{% extends "app_pagina/base.html" %}
+
+{% block title %}Meus Dados - Loja de Pijamas{% endblock %}
+
+{% block content %}
+<section class="auth-section">
+  <div class="auth-card">
+    <h2>Meus Dados</h2>
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <input type="text" name="nome" placeholder="Nome completo" value="João da Silva">
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" placeholder="E-mail" value="joao@email.com">
+      </div>
+      <div class="form-group">
+        <input type="password" name="senha" placeholder="Nova senha (opcional)">
+      </div>
+      <button type="submit" class="btn">Atualizar Dados</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

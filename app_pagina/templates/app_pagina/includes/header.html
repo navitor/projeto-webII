@@ -1,0 +1,27 @@
+{% load static %}
+
+<header class="site-header">
+  <div class="container header-flex">
+   
+    <a href="{% url 'index' %}" class="logo">
+      <img src="{% static 'img/mascote.png' %}" alt="Chamegos Pijamas" class="logo-img">
+      <span>Chamegos Pijamas</span>
+    </a>
+
+    <button class="menu-toggle" aria-label="Abrir menu">
+      <span class="icon-hamburguer">☰</span>
+      <span class="icon-fechar">✖</span>
+    </button>
+
+    
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'produtos' %}">Produtos</a></li>
+        <li><a href="{% url 'sobre_nos' %}">Sobre Nós</a></li>
+        <li><a href="{% url 'login' %}">Entrar</a></li>
+        <li><a href="{% url 'carrinho' %}">Carrinho</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

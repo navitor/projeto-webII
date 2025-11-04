@@ -1,0 +1,14 @@
+{% extends "app_pagina/base.html" %}
+
+{% block title %}Pedido Confirmado - Loja de Pijamas{% endblock %}
+
+{% block content %}
+<section class="auth-section">
+  <div class="auth-card">
+    <h2> Pedido Realizado com Sucesso!</h2>
+    <p>Obrigado por comprar conosco. Seu pedido foi recebido e está sendo processado.</p>
+    <p>Código do pedido: <strong>#1234</strong></p>
+    <a href="{% url 'meus_pedidos' %}" class="btn">Ver Meus Pedidos</a>
+  </div>
+</section>
+{% endblock %}

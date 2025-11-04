@@ -1,0 +1,35 @@
+{% extends "app_pagina/base.html" %}
+
+{% block title %}{{ produto.nome }} - Chamegos Pijamas{% endblock %}
+
+{% block content %}
+<section class="container produto-detalhe">
+  <div class="detalhe-grid">
+    <div class="detalhe-imagem">
+      <img src="{{ produto.imagem }}" alt="{{ produto.nome }}">
+    </div>
+
+    <!-- Informações -->
+    <div class="detalhe-info">
+      <h2>{{ produto.nome }}</h2>
+      <p class="preco">R$ {{ produto.preco }}</p>
+
+      <p class="descricao">
+        {{ produto.descricao|default:"Um pijama confortável e estiloso, inspirado na delicadeza dos chás." }}
+      </p>
+
+      <div class="form-group">
+        <label for="tamanho">Tamanho:</label>
+        <select id="tamanho" name="tamanho">
+          <option value="P">P</option>
+          <option value="M">M</option>
+          <option value="G">G</option>
+          <option value="GG">GG</option>
+        </select>
+      </div>
+
+      <button class="btn btn-comprar" data-produto-id="{{ produto.id }}">Adicionar ao Carrinho</button>
+    </div>
+  </div>
+</section>
+{% endblock %}

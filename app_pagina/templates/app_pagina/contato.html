@@ -1,0 +1,24 @@
+{% extends "app_pagina/base.html" %}
+
+{% block title %}Contato - Loja de Pijamas{% endblock %}
+
+{% block content %}
+<section class="auth-section">
+  <div class="auth-card">
+    <h2>Fale Conosco</h2>
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <input type="text" name="nome" placeholder="Seu nome" required>
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Seu e-mail" required>
+      </div>
+      <div class="form-group">
+        <textarea name="mensagem" rows="4" placeholder="Escreva sua mensagem" required></textarea>
+      </div>
+      <button type="submit" class="btn">Enviar</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

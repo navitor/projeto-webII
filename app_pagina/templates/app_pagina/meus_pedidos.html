@@ -1,0 +1,23 @@
+{% extends "app_pagina/base.html" %}
+
+{% block title %}Meus Pedidos - Chamegos Pijamas{% endblock %}
+
+{% block content %}
+<section class="container pedidos-section">
+  <h2>Meus Pedidos</h2>
+
+  {% if pedidos %}
+    {% for pedido in pedidos %}
+      <div class="pedido-card">
+        <h3>Pedido #{{ pedido.id }}</h3>
+        <p>Status: <strong>{{ pedido.get_status_display }}</strong></p>
+        <p>Data: {{ pedido.data_pedido|date:"d/m/Y H:i" }}</p>
+        <p>Total: R$ {{ pedido.valor_total|floatformat:2 }}</p>
+        <a href="{% url 'pedido_detalhe' pedido.id %}" class="btn">Ver detalhes</a>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>Você ainda não realizou nenhum pedido.</p>
+  {% endif %}
+</section>
+{% endblock %}

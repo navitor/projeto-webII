@@ -1,0 +1,21 @@
+{% extends "app_pagina/base.html" %}
+
+{% block title %}Recuperar Senha - Loja de Pijamas{% endblock %}
+
+{% block content %}
+<section class="auth-section">
+  <div class="auth-card">
+    <h2>Recuperar Senha</h2>
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Digite seu e-mail" required>
+      </div>
+      <button type="submit" class="btn">Enviar link de recuperação</button>
+    </form>
+    <p class="auth-link">
+      Lembrou sua senha? <a href="{% url 'login' %}">Entrar</a>
+    </p>
+  </div>
+</section>
+{% endblock %}

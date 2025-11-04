@@ -1,0 +1,93 @@
+{% extends "app_pagina/base.html" %}
+{% load static %}
+{% block title %}Chamegos Pijamas{% endblock %}
+
+{% block content %}
+
+<section class="banner-principal">
+  <div class="banner-content container">
+    <img src="{% static 'img/mascote-banner.png' %}" alt="Chamegos Pijamas" class="banner-logo">
+    <div class="banner-text">
+      <h1>Chamegos Pijamas</h1>
+      <p>Conforto, estilo e aconchego para suas noites.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Carrossel -->
+<section class="carousel">
+  <div class="carousel-container">
+    <div class="slide active">
+      <img src="/media/pijama01.png" alt="Coleção Feminina">
+      <div class="slide-text">
+        <h2>Coleção Feminina</h2>
+        <p>Conforto e estilo para suas noites</p>
+        <a href="#" class="btn">Ver mais</a>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="/media/pijama02.png" alt="Coleção Masculina">
+      <div class="slide-text">
+        <h2>Conforto e Qualidade</h2>
+        <p>Praticidade e bem-estar</p>
+        <a href="#" class="btn">Ver mais</a>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="/media/pijama03.png" alt="Suas noites de qualidade">
+      <div class="slide-text">
+        <h2>Coleção Feminina</h2>
+        <p>Doce conforto</p>
+        <a href="#" class="btn">Ver mais</a>
+      </div>
+    </div>
+  </div>
+  <!-- Botões -->
+  <button class="prev">❮</button>
+  <button class="next">❯</button>
+</section>
+
+<!-- Categorias -->
+<section class="categorias container">
+  <h2>Mais Vendidos</h2>
+  <div class="grid">
+    <div class="categoria-card">
+      <img src="/media/pijama-inverno.png" alt="Inverno">
+      <h3>Inverno</h3>
+    </div>
+    <div class="categoria-card">
+      <img src="/media/pijama-verao.png" alt="Verão">
+      <h3>Verão</h3>
+    </div>
+    <div class="categoria-card">
+      <img src="/media/pijama-infantil.png" alt="Lazer">
+      <h3>Infantil</h3>
+    </div>
+  </div>
+</section>
+
+<!-- Produtos em Destaque -->
+<section id="produtos" class="produtos-grid container">
+  <h2>Destaques</h2>
+  <div class="grid">
+    <div class="produto-card">
+      <img src="/media/pijama-azul-chamd.png" alt="Pijama Azul">
+      <h3>Pijama Azul Calmante</h3>
+      <p>R$ 89,90</p>
+      <button class="btn btn-comprar" data-produto-id="1">Adicionar ao Carrinho</button>
+    </div>
+    <div class="produto-card">
+      <img src="/media/pijama02.png" alt="Pijama Rosa">
+      <h3>Pijama Hortelã</h3>
+      <p>R$ 99,90</p>
+      <button class="btn btn-comprar" data-produto-id="2">Adicionar ao Carrinho</button>
+    </div>
+    <div class="produto-card">
+      <img src="/media/pijama-florid.png" alt="Pijama Infantil">
+      <h3>Pijama Florido</h3>
+      <p>R$ 79,90</p>
+      <button class="btn btn-comprar" data-produto-id="3">Adicionar ao Carrinho</button>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "app_pagina/base.html" %}
+
+{% block title %}Checkout - Chamegos Pijamas{% endblock %}
+
+{% block content %}
+<section class="checkout-section container">
+  <h2>Finalizar Compra</h2>
+
+  <div class="checkout-grid">
+    <!-- Formulário de entrega e pagamento -->
+    <div class="checkout-form">
+      <h3>Dados de Entrega</h3>
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <input type="text" name="nome" placeholder="Nome completo" required>
+        </div>
+        <div class="form-group">
+          <input type="text" name="endereco" placeholder="Endereço completo" required>
+        </div>
+        <div class="form-group">
+          <input type="text" name="cidade" placeholder="Cidade" required>
+        </div>
+        <div class="form-group">
+          <input type="text" name="cep" placeholder="CEP" required>
+        </div>
+
+        <h3>Método de Pagamento</h3>
+        <div class="form-group">
+          <select name="pagamento" required>
+            <option value="">Selecione</option>
+            <option value="cartao">Cartão de Crédito</option>
+            <option value="pix">PIX</option>
+            <option value="boleto">Boleto Bancário</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn">Finalizar Pedido</button>
+      </form>
+    </div>
+
+    <!-- Resumo do pedido -->
+    <div class="checkout-resumo">
+      <h3>Resumo do Pedido</h3>
+      {% if carrinho %}
+        {% for id, item in carrinho.items %}
+        <div class="resumo-item">
+          <p>{{ item.quantidade }}x {{ item.nome }}</p>
+          <span>R$ {{ item.preco|floatformat:2 }}</span>
+        </div>
+        {% endfor %}
+        <hr>
+        <div class="resumo-item">
+          <p>Subtotal</p>
+          <span>R$ {{ total|floatformat:2 }}</span>
+        </div>
+        <div class="resumo-item">
+          <p>Frete</p>
+          <span>R$ 15,00</span>
+        </div>
+        <div class="resumo-item total">
+          <p>Total</p>
+          <span>R$ {{ total|add:"15"|floatformat:2 }}</span>
+        </div>
+      {% else %}
+        <p>Seu carrinho está vazio.</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endblock %}

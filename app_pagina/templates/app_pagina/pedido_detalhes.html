@@ -1,0 +1,27 @@
+{% extends "app_pagina/base.html" %}
+
+{% block title %}Pedido #{{ pedido.id }} - Chamegos Pijamas{% endblock %}
+
+{% block content %}
+<section class="container pedido-detalhe">
+  <h2>Detalhes do Pedido #{{ pedido.id }}</h2>
+  <p>Status: <strong>{{ pedido.get_status_display }}</strong></p>
+  <p>Data: {{ pedido.data_pedido|date:"d/m/Y H:i" }}</p>
+  <p>Total: R$ {{ pedido.valor_total|floatformat:2 }}</p>
+
+  <h3>Itens</h3>
+  <ul>
+    {% for item in itens %}
+      <li>{{ item.quantidade }}x {{ item.produto.nome }} — R$ {{ item.preco_unitario|floatformat:2 }}</li>
+    {% endfor %}
+  </ul>
+
+  {% if pedido.pagamento %}
+    <h3>Pagamento</h3>
+    <p>Método: {{ pedido.pagamento.get_metodo_display }}</p>
+    <p>Status: {{ pedido.pagamento.status }}</p>
+  {% endif %}
+
+  <a href="{% url 'meus_pedidos' %}" class="btn">Voltar para Meus Pedidos</a>
+</section>
+{% endblock %}

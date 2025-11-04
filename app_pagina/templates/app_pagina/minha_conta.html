@@ -1,0 +1,27 @@
+{% extends "app_pagina/base.html" %}
+
+{% block title %}Minha Conta - Loja de Pijamas{% endblock %}
+
+{% block content %}
+<section class="minha-conta container">
+    <h1>Olá, {{ user.nome }}!</h1>
+    <p>Bem-vindo(a) à sua área de cliente. Aqui você pode gerenciar seus dados e acompanhar seus pedidos.</p>
+
+    <div class="minha-conta-flex">
+        <nav class="conta-menu">
+            <ul>
+                <li><a href="{% url 'minha_conta_dados' %}">Meus Dados</a></li>
+                <li><a href="{% url 'minha_conta_pedidos' %}">Meus Pedidos</a></li>
+                <li><a href="{% url 'minha_conta_rastrear' %}">Rastrear Pedido</a></li>
+                <li><a href="{% url 'logout' %}">Sair</a></li>
+            </ul>
+        </nav>
+
+        <div class="conta-conteudo">
+            {% block minha_conta_conteudo %}
+                <p>Selecione uma opção no menu ao lado para começar.</p>
+            {% endblock %}
+        </div>
+    </div>
+</section>
+{% endblock %}
