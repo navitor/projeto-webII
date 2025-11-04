@@ -1,0 +1,18 @@
+{% load static %}
+<head>
+  <!-- ...existing head... -->
+  <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+</head>
+<body>
+  <!-- ...existing navbar ... -->
+  <div class="nav-cart-wrapper">
+    <a href="{% url 'cart:detail' %}" id="cart-link" class="cart-link">
+      🛒 <span id="cart-badge" class="cart-badge">0</span>
+    </a>
+    <div id="cart-popup" class="cart-popup">+1</div>
+  </div>
+
+  <!-- ...existing body... -->
+
+  <script src="{% static 'js/cart.js' %}"></script>
+</body>

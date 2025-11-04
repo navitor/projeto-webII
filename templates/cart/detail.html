@@ -1,0 +1,11 @@
+<h1>Carrinho</h1>
+{% if items %}
+<ul>
+  {% for it in items %}
+    <li>{{ it.produto.nome }} — {{ it.quantity }} — R$ {{ it.subtotal }}</li>
+  {% endfor %}
+</ul>
+<p>Total: R$ {{ total }}</p>
+{% else %}
+<p>Carrinho vazio.</p>
+{% endif %}
